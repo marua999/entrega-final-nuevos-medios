@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const textItems = document.querySelectorAll('.text-item');
+    const nextButton = document.getElementById('nextButton');
     let currentIndex = 0;
 
     // Recuperar el índice guardado cuando se carga la página
@@ -40,18 +41,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Agregar evento de clic al body completo
+    // Evento del botón de navegación
+    nextButton.addEventListener('click', function(e) {
+        e.stopPropagation(); // Evitar que se dispare el evento del body
+        nextText();
+    });
+
+    // Agregar evento de clic al body completo (OPCIONAL - puedes quitarlo si solo quieres el botón)
     document.body.addEventListener('click', function(e) {
-        // Evitar avanzar el texto si se hizo clic en un enlace
-        if (e.target.tagName !== 'A') {
+        // Evitar avanzar si se hizo clic en un enlace o en el botón
+        if (e.target.tagName !== 'A' && !e.target.closest('.nav-button')) {
             nextText();
         }
     });
     
     // También funciona con tap en dispositivos móviles
     document.body.addEventListener('touchend', function(e) {
-        // Evitar avanzar el texto si se tocó un enlace
-        if (e.target.tagName !== 'A') {
+        // Evitar avanzar si se tocó un enlace o el botón
+        if (e.target.tagName !== 'A' && !e.target.closest('.nav-button')) {
             e.preventDefault();
             nextText();
         }

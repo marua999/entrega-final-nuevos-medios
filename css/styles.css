@@ -66,3 +66,59 @@ color:blue;
 .text-item.active a:hover {
 text-decoration: underline;
 }
+
+/* Botón de navegación */
+.nav-button {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    opacity: 0.4;
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 0, 0, 0.4);
+    opacity: 0.7;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Flecha con CSS */
+.arrow {
+    width: 15px;
+    height: 15px;
+    border-right: 3px solid rgba(0, 0, 0, 0.6);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.6);
+    transform: rotate(-45deg);
+    margin-left: -3px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .nav-button {
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .arrow {
+        width: 12px;
+        height: 12px;
+        border-width: 2px;
+    }
+}
